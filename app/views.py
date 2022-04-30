@@ -17,4 +17,4 @@ def movie(news_id):
     '''
     View news page function that returns the news details page and its data
     '''
-    return render_template('movie.html',id = news_id)
+    return render_template('news.html',id = news_id)
