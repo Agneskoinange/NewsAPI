@@ -16,5 +16,19 @@
                 <li>{{ popular_news.title}}</li>
             {% endfor %}
         </ul>
+        <!-- Upcoming movie  -->
+        <h3> Upcoming News </h3>
+         <ul>
+            {% for upcoming_news in upcoming %}
+                <li>{{ upcoming_news.title}}</li>
+            {% endfor %}
+        </ul>
+        <!-- Now showing movie -->
+        <h3>Now Showing</h3>
+         <ul>
+            {% for now_showing_news in now_showing %}
+                <li>{{ now_showing_news.title}}</li>
+            {% endfor %}
+        </ul>
  </body>
 </html>
