@@ -2,75 +2,77 @@
 {% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
+  </head>
 
-    </head>
-    <body>
+  <body>
+        
         <!-- Styles block -->
-
         {% block styles%}
         {{ super() }}
         <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
         {% endblock %}
-        <!-- Content block -->
-        {% block content %}
-        <!-- Sources section  -->
-        <aside class="sidebar">
-            <h3 class="bg-dark text-white">General News</h3>
-            <ul class="list-group">
+        
+        
+    <!-- Content block -->
+    {% block content %}
+    <!-- Sources section  -->
+    <div class="row">
+        <div class="col-md-3">
+            <h3 style="text-align: center;">General News</h3>
+            <ul >
              {{macro.displaySources(general)}}
             </ul>
-            <h3 class="bg-dark text-white">Business News</h3>
-            <ul class="list-group">
+            <h3 style="text-align: center;">Business News</h3>
+            <ul>
              {{macro.displaySources(business)}}
             </ul>
-            <h3 class="bg-dark text-white">Science News</h3>
-            <ul class="list-group">
+            <h3 >Science News</h3>
+            <ul>
              {{macro.displaySources(science)}}
             </ul>
-            <h3 class="bg-dark text-white">Health News</h3>
-            <ul class="list-group">
+            <h3 style="text-align: center;" >Health News</h3>
+            <ul>
              {{macro.displaySources(health)}}
             </ul>
-            <h3 class="bg-dark text-white">Technology News</h3>
-            <ul class="list-group">
+            <h3 style="text-align: center;" >Technology News</h3>
+            <ul>
              {{macro.displaySources(technology)}}
             </ul>
-            <h3 class="bg-dark text-white">Entertainment News</h3>
-            <ul class="list-group">
+            <h3 style="text-align: center;" >Entertainment News</h3>
+            <ul >
              {{macro.displaySources(entertainment)}}
             </ul>
-            <h3 class="bg-dark text-white">Sports News</h3>
-            <ul class="list-group">
+            <h3 style="text-align: center;" >Sports News</h3>
+            <ul>
              {{macro.displaySources(sports)}}
             </ul>
-          
-        </aside>
+        </div>
             
-          <section class="main">
-            <h3 class="text-center font-weight-bolder">TOP HEADLINES</h3>
-            <div class="d-flex flex-wrap justify-content-center">
+        
+        <div class="col-md-9">
+            <h3 style="text-align: center;">TOP HEADLINES</h3>
+            <div>
             {% for i in top %}
 
-                <div class="card col-lg-3 col-md-6 m-2 p-2" >
+                <div class="card col-md-3" style="margin-right: 20px; padding-right: 20px;" >
                     <img src="{{i.image}}" class="card-img-top" alt="no image">
                     <div class="card-body">
                     <h5 class="card-title font-weight-bold">{{i.title}}</h5>
                     <p class="card-text">{{i.description}}</p>
                     <p class="card-text font-italic">Source : {{i.source}}</p>
                     <br>
-                    <a href="{{i.link}}" class="btn btn-primary" style="position: absolute;
-                    bottom: 10px;">Read more...</a>
+                    <a href="{{i.link}}" class="btn btn-primary" style="position: absolute; bottom:10px;">Read more...</a>
                     </div>
                 </div>
-            
-            
             {% endfor %}
            
-            </section>
-          
+            </div>
+            {% endblock %}
 
-        {% endblock %}
- </body>
+    </div>
+
+  </body>
+
 </html>
