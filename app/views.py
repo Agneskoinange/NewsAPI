@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from app import app
 from .request import get_news, get_news, search_news
-from models import review
+from models import articles, review
 from .forms import ReviewForm
 Review = review.articles
 
@@ -35,8 +35,10 @@ def news(id):
     '''
     news = get_news(id)
     title = f'{news.title}'
+    reviews = Review.get_reviews(articles.id)
 
-    return render_template('news.html',title = title,news = news)
+    return render_template('news.html',title = title,news = news, reviews = articles)
+    
 
 @app.route('/search/<news_name>')
 def search(news_name):

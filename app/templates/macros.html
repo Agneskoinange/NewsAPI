@@ -10,5 +10,16 @@
         </div>
 
     {% endfor %}
+    
 
+{% endmacro %}
+
+<!-- Displaying reviews macro -->
+{% macro displayReviews(article_list) %}
+    {% for review in article_list %}
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
+        <h2> {{ article.title}} </h2>
+        <p> {{ article.description | truncate(30) }}</p>
+    </div>
+    {% endfor %}
 {% endmacro %}
