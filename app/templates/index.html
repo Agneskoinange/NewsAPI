@@ -1,39 +1,76 @@
-
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
 
-<!-- Styles block -->
+    </head>
+    <body>
+        <!-- Styles block -->
 
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-<!-- Content block -->
-{% extends 'base.html'%}
+        {% block styles%}
+        {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+        {% endblock %}
+        <!-- Content block -->
+        {% block content %}
+        <!-- Sources section  -->
+        <aside class="sidebar">
+            <h3 class="bg-dark text-white">General News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(general)}}
+            </ul>
+            <h3 class="bg-dark text-white">Business News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(business)}}
+            </ul>
+            <h3 class="bg-dark text-white">Science News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(science)}}
+            </ul>
+            <h3 class="bg-dark text-white">Health News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(health)}}
+            </ul>
+            <h3 class="bg-dark text-white">Technology News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(technology)}}
+            </ul>
+            <h3 class="bg-dark text-white">Entertainment News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(entertainment)}}
+            </ul>
+            <h3 class="bg-dark text-white">Sports News</h3>
+            <ul class="list-group">
+             {{macro.displaySources(sports)}}
+            </ul>
+          
+        </aside>
+            
+          <section class="main">
+            <h3 class="text-center font-weight-bolder">TOP HEADLINES</h3>
+            <div class="d-flex flex-wrap justify-content-center">
+            {% for i in top %}
 
-{% import 'macros.html' as macro%}
- <!-- Content block -->
- {% block content %}
- <div class="container">
-    <form>
-        <input type="text" name="news_query" placeholder="Search for a News" class="form-control">
-        <input type="submit"  value="Submit" class="btn btn-default">
-    </form>
+                <div class="card col-lg-3 col-md-6 m-2 p-2" >
+                    <img src="{{i.image}}" class="card-img-top" alt="no image">
+                    <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{i.title}}</h5>
+                    <p class="card-text">{{i.description}}</p>
+                    <p class="card-text font-italic">Source : {{i.source}}</p>
+                    <br>
+                    <a href="{{i.link}}" class="btn btn-primary" style="position: absolute;
+                    bottom: 10px;">Read more...</a>
+                    </div>
+                </div>
+            
+            
+            {% endfor %}
+           
+            </section>
+          
 
-</div>
- <!-- Popular news -->
- <h3> Popular News</h3>
- <ul>
-     {{ macro.displayNewsList(popular)}}
- </ul>
- <!-- Upcoming news  -->
- <h3> Upcoming News </h3>
- <ul>
-     {{ macro.displayNewsList(upcoming)}}
- </ul>
- <!-- Now showing News -->
- <h3>Now Showing</h3>
- <ul>
-     {{ macro.displayNewsList(now_showing)}}
- </ul>
-{% endblock%}     
+        {% endblock %}
+ </body>
+</html>
