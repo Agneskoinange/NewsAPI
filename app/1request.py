@@ -1,4 +1,4 @@
-from app import app
+from app.main import app
 import urllib.request,json
 
 from app.news_test import News

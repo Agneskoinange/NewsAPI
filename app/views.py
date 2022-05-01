@@ -1,5 +1,5 @@
 from flask import render_template,request,redirect,url_for
-from app import app
+from app.main import app
 from .request import get_news, get_news, search_news
 from models import articles, review
 from .forms import ReviewForm
