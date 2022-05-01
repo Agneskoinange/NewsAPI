@@ -1,8 +1,8 @@
 from app import app
 import urllib.request,json
 
-from app.models.news_test import News
-from .models import news
+from app.news_test import News
+from models import news
 
 News = news.News
 
