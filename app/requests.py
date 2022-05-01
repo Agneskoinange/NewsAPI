@@ -2,6 +2,7 @@ import urllib.request, json
 from .models import Source, Article, Top
 from datetime import datetime
 
+
 #Get api key
 api_key = None
 
@@ -23,7 +24,7 @@ def get_sources(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_sources_url = base_url.format(category,api_key)
+    get_sources_url = 'https://newsapi.org/v2/sources?category={}&language=en&apiKey=1e51b99e9ee04378b5c113f9b700eb45'.format(category,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -58,7 +59,7 @@ def process_results(source_list):
     return source_results
 
 def get_articles(id):
-    get_article_url = article_url.format(id,api_key)
+    get_article_url = 'https://newsapi.org/v2/everything?sources={}&language=en&apiKey=1e51b99e9ee04378b5c113f9b700eb45'.format(id,api_key)
 
     with urllib.request.urlopen(get_article_url) as url:
         article_details_data = url.read()
@@ -90,7 +91,7 @@ def get_articles(id):
     return article_results
 
 def topheadlines():
-        get_top_url = top_url.format(api_key)
+        get_top_url = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=1e51b99e9ee04378b5c113f9b700eb45'.format(api_key)
 
         with urllib.request.urlopen(get_top_url) as url:
             top_details_data = url.read()
