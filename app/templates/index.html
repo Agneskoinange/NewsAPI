@@ -8,31 +8,11 @@
         <title> Welcome to The best News Website Online </title>
         {% endif %}
     </head>
-
+    {% extends 'base.html'%}
     {% import 'macros.html' as macro%}
     <body>
-        <!-- Popular news section 
-        <h3> Popular News</h3>
-         <ul>
-            {% for popular_news in popular %}
-                <li>{{ popular_news.title}}</li>
-            {% endfor %}
-        </ul>
-         Upcoming news  -->
-        <!-- <h3> Upcoming News </h3>
-         <ul>
-            {% for upcoming_news in upcoming %}
-                <li>{{ upcoming_news.title}}</li>
-            {% endfor %}
-        </ul>
-        Now showing news -->
-        <!-- <h3>Now Showing</h3>
-         <ul>
-            {% for now_showing_news in now_showing %}
-                <li>{{ now_showing_news.title}}</li>
-            {% endfor %}
-        </ul>  -->
-
+        <!-- Content block -->
+        {% block content %}
          <!-- Popular news -->
          <h3> Popular News</h3>
          <ul>
@@ -48,5 +28,6 @@
          <ul>
              {{ macro.displayNewsList(now_showing)}}
          </ul>
+        {% endblock%}
  </body>
 </html>
