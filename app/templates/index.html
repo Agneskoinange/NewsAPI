@@ -6,45 +6,46 @@
     <meta charset="utf-8">
   </head>
 
-  <body>
+<body>
         
         <!-- Styles block -->
         {% block styles%}
         {{ super() }}
-        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
         {% endblock %}
         
         
-    <!-- Content block -->
-    {% block content %}
-    <!-- Sources section  -->
+<!-- Content block -->
+ {% block content %}
+  <!-- Sources section  -->
+  <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <h3 style="text-align: center;">General News</h3>
+            <h3 style="text-align: center;" id="gen">General News</h3>
             <ul >
              {{macro.displaySources(general)}}
             </ul>
-            <h3 style="text-align: center;">Business News</h3>
+            <h3 style="text-align: center;" id="bus">Business News</h3>
             <ul>
              {{macro.displaySources(business)}}
             </ul>
-            <h3 >Science News</h3>
+            <h3 style="text-align: center;" id="sci" >Science News</h3>
             <ul>
              {{macro.displaySources(science)}}
             </ul>
-            <h3 style="text-align: center;" >Health News</h3>
+            <h3 style="text-align: center;" id="health">Health News</h3>
             <ul>
              {{macro.displaySources(health)}}
             </ul>
-            <h3 style="text-align: center;" >Technology News</h3>
+            <h3 style="text-align: center;" id="tech">Technology News</h3>
             <ul>
              {{macro.displaySources(technology)}}
             </ul>
-            <h3 style="text-align: center;" >Entertainment News</h3>
+            <h3 style="text-align: center;" id="enter" >Entertainment News</h3>
             <ul >
              {{macro.displaySources(entertainment)}}
             </ul>
-            <h3 style="text-align: center;" >Sports News</h3>
+            <h3 style="text-align: center;" id="sports">Sports News</h3>
             <ul>
              {{macro.displaySources(sports)}}
             </ul>
@@ -52,27 +53,30 @@
             
         
         <div class="col-md-9">
-            <h3 style="text-align: center;">TOP HEADLINES</h3>
-            <div>
-            {% for i in top %}
+          <h3 style="text-align: center;">TOP HEADLINES</h3>
+           <div class="container">
+            <div class="card-columns">
+              {% for i in top %}
 
-                <div class="card col-md-3" style="margin-right: 20px; padding-right: 20px;" >
-                    <img src="{{i.image}}" class="card-img-top" alt="no image">
-                    <div class="card-body">
-                    <h5 class="card-title font-weight-bold">{{i.title}}</h5>
-                    <p class="card-text">{{i.description}}</p>
-                    <p class="card-text font-italic">Source : {{i.source}}</p>
-                    <br>
-                    <a href="{{i.link}}" class="btn btn-primary" style="position: absolute; bottom:10px;">Read more...</a>
+              <!-- <div class="col-md-3" style="margin-right: 20px; padding-right: 20px;"> -->
+                <div class="card">
+                    <img class="card" src="{{i.image}}" class="card-img-top" alt="no image" size="100px180">
+                    <div class="card-body" >
+                        <h5 class="card-title font-weight-bold"> {{i.title}} </h5>
+                        <p class="card-text"> {{i.description}} </p>
+                        <p class="card-text font-italic"> Source : {{i.source}} </p>
+                        <br>
+                        <a href="{{i.link}}" class="btn btn-primary" style="position: absolute; bottom:10px;">Read more...</a>
                     </div>
                 </div>
+              </div>
             {% endfor %}
-           
-            </div>
-            {% endblock %}
-
+           </div>
+        </div>
+    
     </div>
-
-  </body>
+  </div>
+ {% endblock %}
+</body>
 
 </html>
