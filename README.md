@@ -23,7 +23,7 @@ As a user I would like to:
 
 Prerequisites
 
-* python3.6
+* python3.9
 * pip
 * virtualenv
 
@@ -36,15 +36,15 @@ In your terminal:
   
  Creating the virtual environment
 
-  $ python3.6 -m venv --without-pip virtual
+  $ python3.9 -m venv --without-pip virtual
   $ source virtual/bin/env
   $ curl https://bootstrap.pypa.io/get-pip.py | python
   
 Installing Flask and other Modules
 
-  $ python3.6 -m pip install Flask
-  $ python3.6 -m pip install Flask-Bootstrap
-  $ python3.6 -m pip install Flask-Script
+  $ python3.9 -m pip install Flask
+  $ python3.9 -m pip install Flask-Bootstrap
+  $ python3.9 -m pip install Flask-Script
   
 Setting up the API Key
 
@@ -55,7 +55,7 @@ Setting up the API Key
   * Insert the following info into it:
 
           export NEWS_API_KEY='<Your-Api-Key>'
-          python3.6 manage.py server
+          python3.9 manage.py server
 
   * Insert the API Key you received from News Api where <Your-Api-Key> is.
   
